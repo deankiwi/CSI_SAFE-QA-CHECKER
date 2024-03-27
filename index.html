@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>SAFE CHECKER</title>
+    <link
+      rel="stylesheet"
+      href="https://pyscript.net/releases/2024.3.1/core.css"
+    />
+    <script
+      type="module"
+      src="https://pyscript.net/releases/2024.3.1/core.js"
+    ></script>
+  </head>
+  <body>
+    <h1>SAFE checker</h1>
+    <p>Check SAFE file for errors</p>
+    <p>Copy in the SAFE file and click the button</p>
+    <p>A demo small demo SAFE has been left in for illustration purposes</p>
+
+    <textarea type="text" id="safe_file" placeholder="copy in SAFE file">
+TABLE:  "SLAB PROPERTY DEFINITIONS"
+        Name="CH03 (B1N&B1S) 1500 x 1500 x 750dp"   "Modeling Type"=Shell-Thick   "Property Type"=Slab   Material=C35/45   "Slab Thickness"=1000   "Notional Size Type"=User   "Notional User Size"=100   "f11 Modifier"=1   "f22 Modifier"=1 _
+             "f12 Modifier"=1   "m11 Modifier"=1   "m22 Modifier"=1   "m12 Modifier"=1   "v13 Modifier"=1   "v23 Modifier"=1   "Mass Modifier"=1   "Weight Modifier"=1   Color=Red   GUID=e777c476-b735-4c65-aed7-f98e43d535b3 _
+             Notes="Added 14/11/2018 14:44:11"   Orthotropic?=No
+        Name="CH03 (Gym) 1500 x 1500 x 750dp"   "Modeling Type"=Shell-Thick   "Property Type"=Slab   Material=C35/45   "Slab Thickness"=1050   "Notional Size Type"=User   "Notional User Size"=100   "f11 Modifier"=1   "f22 Modifier"=1 _
+             "f12 Modifier"=1   "m11 Modifier"=1   "m22 Modifier"=1   "m12 Modifier"=1   "v13 Modifier"=1   "v23 Modifier"=1   "Mass Modifier"=1   "Weight Modifier"=1   Color=Red   GUID=ca736adc-b4c2-4420-954f-738b63120fd7 _
+             Notes="Added 14/11/2018 14:44:11"   Orthotropic?=No
+                    
+             TABLE:  "MATERIAL PROPERTIES - CONCRETE DATA"
+            Material=C60/70   Fc=50   LtWtConc=No   IsUserFr=Yes   UserFr=4.1   SSCurveOpt=Simple   SSHysType=Kinematic   SFc=0.00221914221766202   SCap=0.005   FinalSlope=-0.1   FAngle=0   DAngle=0
+             Material="podium concrete"   Fc=50   LtWtConc=No   IsUserFr=Yes   UserFr=4.1   SSCurveOpt=Simple   SSHysType=Kinematic   SFc=0.00221914221766202   SCap=0.005   FinalSlope=-0.1   FAngle=0   DAngle=0
+
+             TABLE:  "LOAD CASE DEFINITIONS - LINEAR STATIC"
+     Name=DEAD   "Exclude Group"=None   "Initial Condition"="Nonlinear Case"   "Nonlinear Case"=None   "Load Type"=Load   "Load Name"=DEAD   "Load SF"=1   "Design Type"="Program Determined"   GUID=ac8be9af-0fb6-456d-9c65-a1013ab531de
+     Name=FAÇADE   "Exclude Group"=None   "Initial Condition"="Nonlinear Case"   "Nonlinear Case"=None   "Load Type"=Load   "Load Name"=FAÇADE   "Load SF"=1   "Design Type"="Program Determined"   GUID=c9f314be-e23d-41e5-bff3-d87489b3e4f8
+     Name=LIVE   "Exclude Group"=None   "Initial Condition"="Nonlinear Case"   "Nonlinear Case"=None   "Load Type"=Load   "Load Name"=LIVE   "Load SF"=1   "Design Type"="Program Determined"   GUID=3d4bc6fe-663a-413b-a55d-6420d687f738
+     Name=SDL   "Exclude Group"=None   "Initial Condition"="Nonlinear Case"   "Nonlinear Case"=None   "Load Type"=Load   "Load Name"=SDL   "Load SF"=1   "Design Type"="Program Determined"   GUID=dad3d3a2-cd60-4132-973c-466577420580
+     Name=W000   "Exclude Group"=None   "Initial Condition"="Nonlinear Case"   "Nonlinear Case"=None   "Load Type"=Load   "Load Name"=W000   "Load SF"=1   "Design Type"="Program Determined"   GUID=9b1074a5-e781-4970-9573-7979f5b54c19
+     Name=W090   "Exclude Group"=None   "Initial Condition"="Nonlinear Case"   "Nonlinear Case"=None   "Load Type"=Load   "Load Name"=W090   "Load SF"=1   "Design Type"="Program Determined"   GUID=7b4a4150-7843-413f-be1b-187e27dc02b7
+     Name=W180   "Exclude Group"=None   "Initial Condition"="Nonlinear Case"   "Nonlinear Case"=None   "Load Type"=Load   "Load Name"=W180   "Load SF"=1   "Design Type"="Program Determined"   GUID=a8cd8674-832a-4b53-b472-2c7a28cb4b40
+     Name=W270   "Exclude Group"=None   "Initial Condition"="Nonlinear Case"   "Nonlinear Case"=None   "Load Type"=Load   "Load Name"=W270   "Load SF"=1   "Design Type"="Program Determined"   GUID=7041dda5-e587-42bb-bcd7-b6bad394244d
+          
+             TABLE:  "LOAD COMBINATION DEFINITIONS"
+   Name="ULS 1G+1.5W180"   Type="Linear Add"   "Is Auto"=No   "Load Name"=DEAD   SF=-1   GUID=698e31aa-8838-49e9-998c-1fe971da2cfc
+   Name="ULS 1G+1.5W180"   "Load Name"=SDL   SF=1
+   Name="ULS 1G+1.5W180"   "Load Name"=FAÇADE   SF=1
+   Name="ULS 1G+1.5W180"   "Load Name"=W180   SF=1.5
+   Name="ULS 1G+1.5W270"   Type="Linear Add"   "Is Auto"=No   "Load Name"=DEAD   SF=100   GUID=03562b4c-46b1-4d7c-8efc-611f861c2e54
+   Name="ULS 1G+1.5W270"   "Load Name"=SDL   SF=-1
+   Name="ULS 1G+1.5W270"   "Load Name"=FAÇADE   SF=-1
+   Name="ULS 1G+1.5W270"   "Load Name"=W270   SF=-1.5
+           
+ </textarea>
+    <input type="checkbox" id="show_warnings" checked />
+    <label for="show_warnings"> show warnings</label><br />
+    <button py-click="safe_checker">Check</button>
+    <div id="output"></div>
+    <div id="report"></div>
+    <div id="report2"></div>
+    <script type="py" src="./main.py" config="./pyscript.json"></script>
+  </body>
+</html>
