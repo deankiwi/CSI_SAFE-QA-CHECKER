@@ -1,0 +1,6 @@
+SAFE model files
+.pytest_cache
+env/
+playground/
+__pycache__
+.vscode
